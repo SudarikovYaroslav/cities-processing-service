@@ -12,11 +12,12 @@ public class ConsolePrinter {
         System.out.println(text);
     }
 
-    public static void printCitiesAsJson(List<City> cities) {
+    public static void printCities(List<City> cities) {
         for (City city : cities) {
             String line = String.format(
                     "City{name='%s',region='%s',district='%s',population='%d',foundation='%s'}",
                     city.getName(), city.getRegion(), city.getDistrict(), city.getPopulation(), city.getFoundation());
+
             print(line);
         }
     }

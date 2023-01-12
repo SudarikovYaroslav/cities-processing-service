@@ -8,6 +8,6 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         List<City> cities = CityReader.readCities();
-        ConsolePrinter.printCitiesAsJson(cities);
+        ConsolePrinter.printCities(cities);
     }
 }
