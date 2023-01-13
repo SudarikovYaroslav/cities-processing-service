@@ -1,5 +1,7 @@
 package ru.sber.model;
 
+import ru.sber.util.ConsolePrinter;
+
 import java.util.List;
 
 public class CityProcessor {
@@ -22,5 +24,29 @@ public class CityProcessor {
 
     public void sortByDistrictAndName(List<City> cities) {
         citySorter.sortByDistrictAndName(cities);
+    }
+
+    public City findMostPopulatedCity(List<City> cities) {
+        if (cities == null || cities.size() == 0) {
+            return null;
+        }
+
+        City[] cityArr = cities.toArray(new City[0]);
+        if (cityArr.length == 1) {
+            return cityArr[0];
+        }
+
+        long maxPopulation = cityArr[0].getPopulation();
+        int pos = 0;
+
+        for (int i = 1; i < cityArr.length; i++) {
+            if (cityArr[i].getPopulation() > maxPopulation) {
+                maxPopulation = cityArr[i].getPopulation();
+                pos = i;
+            }
+        }
+        ConsolePrinter.print("Самый густонаселённый город - " + cityArr[pos] + "\nпозиция в списке и население:" );
+        ConsolePrinter.print("[" + pos + "] = " + maxPopulation);
+        return cityArr[pos];
     }
 }
