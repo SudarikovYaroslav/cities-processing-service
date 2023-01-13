@@ -1,4 +1,4 @@
-package ru.sber;
+package ru.sber.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

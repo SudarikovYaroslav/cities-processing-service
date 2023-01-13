@@ -1,6 +1,4 @@
-package ru.sber.util;
-
-import ru.sber.City;
+package ru.sber.model;
 
 public class CityParser {
 
@@ -11,9 +9,7 @@ public class CityParser {
     public static final int POPULATION_COLUMN = 4;
     public static final int FOUNDATION_COLUMN = 5;
 
-    private CityParser() {}
-
-    public static City parse(String record) {
+    public City parse(String record) {
         String[] items = record.split(SPLITTER);
 
         String citiName = items[NAME_COLUMN];

@@ -1,21 +1,25 @@
 package ru.sber;
 
-import ru.sber.util.CityReader;
-import ru.sber.util.CitySorter;
+import ru.sber.model.*;
 import ru.sber.util.ConsolePrinter;
 
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<City> cities = CityReader.readCities();
+        CityParser parser = new CityParser();
+        CityReader reader = new CityReader(parser);
+        CitySorter sorter = new CitySorter();
+        CityProcessor cityProcessor = new CityProcessor(reader, sorter);
+
+        List<City> cities = cityProcessor.readCities();
 
         ConsolePrinter.print("\n***  ***  ***\nСортировка по названию городов в алфавитном порядке\n***  ***  ***");
-        CitySorter.sortInAlphabetOrder(cities);
+        cityProcessor.sortInAlphabetOrder(cities);
         ConsolePrinter.printCities(cities);
 
         ConsolePrinter.print("\n***  ***  ***\nСортировка по регионам и названиям городов\n***  ***  ***");
-        CitySorter.sortByDistrictAndName(cities);
+        cityProcessor.sortByDistrictAndName(cities);
         ConsolePrinter.printCities(cities);
     }
 }

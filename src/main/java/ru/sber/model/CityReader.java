@@ -1,6 +1,6 @@
-package ru.sber.util;
+package ru.sber.model;
 
-import ru.sber.City;
+import ru.sber.util.ConsolePrinter;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,10 +12,13 @@ import java.util.Scanner;
 
 public class CityReader {
 
-    private CityReader() {
+    private final CityParser cityParser;
+
+    public CityReader(CityParser cityParser) {
+        this.cityParser = cityParser;
     }
 
-    public static List<City> readCities() {
+    public List<City> readCities() {
         String projectPath = new File("").getAbsolutePath();
         String citiesSourcePath = projectPath + "\\Задача ВС Java Сбер.csv";
         Path path = Paths.get(citiesSourcePath);
@@ -28,7 +31,7 @@ public class CityReader {
 
             while (scanner.hasNext()) {
                 String record = scanner.nextLine();
-                City city = CityParser.parse(record);
+                City city = cityParser.parse(record);
                 cities.add(city);
             }
         } catch (IndexOutOfBoundsException e) {

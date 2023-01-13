@@ -1,6 +1,6 @@
 package ru.sber.util;
 
-import ru.sber.City;
+import ru.sber.model.City;
 
 import java.util.List;
 
