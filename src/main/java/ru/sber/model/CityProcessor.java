@@ -2,7 +2,10 @@ package ru.sber.model;
 
 import ru.sber.util.ConsolePrinter;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CityProcessor {
 
@@ -48,5 +51,20 @@ public class CityProcessor {
         ConsolePrinter.print("\nСамый густонаселённый город - " + cityArr[pos] + "\nпозиция в списке и население:"
                 + "[" + pos + "] = " + maxPopulation);
         return cityArr[pos];
+    }
+
+    public Map<String, List<City>> countAndPrintCitiesInRegion(List<City> cities) {
+        Map<String, List<City>> regionCities = new HashMap<>();
+
+        for (City city : cities) {
+            if (regionCities.containsKey(city.getRegion())) {
+                regionCities.get(city.getRegion()).add(city);
+            } else {
+                List<City> cityList = new ArrayList<>();
+                cityList.add(city);
+                regionCities.put(city.getRegion(), cityList);
+            }
+        }
+        return regionCities;
     }
 }
