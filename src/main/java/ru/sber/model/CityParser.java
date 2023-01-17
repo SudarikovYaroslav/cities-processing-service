@@ -8,6 +8,7 @@ public class CityParser {
     public static final int DISTRICT_COLUMN = 3;
     public static final int POPULATION_COLUMN = 4;
     public static final int FOUNDATION_COLUMN = 5;
+    public static final int REGULAR_COLUMNS_COUNT = 6;
 
     public City parse(String record) {
         String[] items = record.split(SPLITTER);
@@ -16,7 +17,11 @@ public class CityParser {
         String region = items[REGION_COLUMN];
         String district = items[DISTRICT_COLUMN];
         long population = Long.parseLong(items[POPULATION_COLUMN]);
-        String foundation = items[FOUNDATION_COLUMN];
+        String foundation = null;
+
+        if (items.length == REGULAR_COLUMNS_COUNT) {
+            foundation = items[FOUNDATION_COLUMN];
+        }
 
         return new City(
                 citiName,

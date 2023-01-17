@@ -34,8 +34,6 @@ public class CityReader {
                 City city = cityParser.parse(record);
                 cities.add(city);
             }
-        } catch (IndexOutOfBoundsException e) {
-            ConsolePrinter.print("Exception: " + e.getMessage());
         } catch (IOException e) {
             ConsolePrinter.print("Something wrong when read cities source file :( ");
             e.printStackTrace();

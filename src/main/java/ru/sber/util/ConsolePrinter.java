@@ -17,7 +17,6 @@ public class ConsolePrinter {
             String line = String.format(
                     "City{name='%s',region='%s',district='%s',population='%d',foundation='%s'}",
                     city.getName(), city.getRegion(), city.getDistrict(), city.getPopulation(), city.getFoundation());
-
             print(line);
         }
     }

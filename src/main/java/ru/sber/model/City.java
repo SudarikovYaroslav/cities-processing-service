@@ -13,4 +13,15 @@ public class City {
     private String district;
     private long population;
     private String foundation;
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "name='" + name + '\'' +
+                ", region='" + region + '\'' +
+                ", district='" + district + '\'' +
+                ", population=" + population +
+                ", foundation='" + foundation + '\'' +
+                '}';
+    }
 }

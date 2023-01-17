@@ -45,8 +45,8 @@ public class CityProcessor {
                 pos = i;
             }
         }
-        ConsolePrinter.print("Самый густонаселённый город - " + cityArr[pos] + "\nпозиция в списке и население:" );
-        ConsolePrinter.print("[" + pos + "] = " + maxPopulation);
+        ConsolePrinter.print("\nСамый густонаселённый город - " + cityArr[pos] + "\nпозиция в списке и население:"
+                + "[" + pos + "] = " + maxPopulation);
         return cityArr[pos];
     }
 }
